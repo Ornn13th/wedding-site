@@ -1,0 +1,187 @@
+<!doctype html>
+<html lang="hu">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Esküvő • Shire Edition</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=IM+Fell+English:ital@0;1&family=Cinzel:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+  <!-- Ambient layers -->
+  <div class="ambient" id="ambient"></div>
+
+  <!-- Intro Overlay -->
+  <div class="intro" id="intro" aria-label="Meghívó intro">
+    <div class="introStage">
+      <div class="introLeft cardGlass">
+        <div class="introMedia" id="introMedia">
+          <!-- Video will be injected if enabled -->
+          <div class="introMediaOverlay"></div>
+          <div class="introBadge">A meghívó egy különös útra hív…</div>
+        </div>
+
+        <div class="introText">
+          <div class="kicker">Shire Edition</div>
+          <h1 class="quote">
+            “Lorem ipsum dolor sit amet, consectetur adipiscing elit.”
+            <span class="quoteBy">— Lorem Ipsum</span>
+          </h1>
+          <p class="hint">Kattints a tekercsre. (Vagy nyomd meg a Felnyitás gombot.)</p>
+
+          <div class="actions">
+            <button class="btn primary" id="openBtn">Felnyitás</button>
+            <button class="btn" id="skipBtn">Átugrás</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="introRight cardGlass">
+        <div class="scroll" id="scroll" role="button" tabindex="0" aria-label="Tekercs felnyitása">
+          <div class="roller top"></div>
+          <div class="roller bottom"></div>
+
+          <div class="parchment">
+            <div class="curl top"></div>
+            <div class="curl bottom"></div>
+
+            <div class="scrollContent">
+              <div class="scrollTitle" id="scrollTitle">Lorem & Ipsum</div>
+              <div class="scrollBody">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </div>
+              <div class="seal" aria-hidden="true"></div>
+              <div class="scrollTap">Click to open</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="microHint">
+          Tipp: mobilon “tap”, desktopon kattintás.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main App -->
+  <header class="topbar" id="topbar">
+    <div class="topbarInner">
+      <div class="brand">
+        <div class="mark"></div>
+        <div>
+          <div class="brandTitle">Esküvő</div>
+          <div class="brandSub">Shire Edition</div>
+        </div>
+      </div>
+
+      <nav class="nav" id="nav"></nav>
+      <button class="navToggle" id="navToggle" aria-label="Menü">☰</button>
+    </div>
+  </header>
+
+  <main class="shell" id="shell">
+    <section class="mapWrap reveal" id="mapWrap">
+      <div class="map" id="map">
+        <div class="mapTitle">Shire Map • Lorem ipsum</div>
+      </div>
+    </section>
+
+    <section class="page reveal" id="home">
+      <div class="inner hero">
+        <div class="heroPhoto card" id="heroPhoto">
+          <div class="frame"></div>
+          <div class="caption">
+            <div class="capTitle" id="coupleNames">Lorem & Ipsum</div>
+            <div class="capMeta">Lorem ipsum • 2026 • Shire</div>
+          </div>
+        </div>
+
+        <div class="heroRight card">
+          <div class="kicker">Köszöntő</div>
+          <h2 class="headline">Lorem ipsum dolor sit amet</h2>
+          <p class="lead">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+
+          <div class="chips" id="chips"></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="schedule">
+      <div class="innerWide">
+        <div class="sectionHead">
+          <h2>Menetrend</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+
+        <div class="timeline" id="timeline"></div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="menu">
+      <div class="innerWide">
+        <div class="sectionHead">
+          <h2>Menü</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+
+        <div class="menuGrid" id="menuGrid"></div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="gallery">
+      <div class="innerWide">
+        <div class="sectionHead">
+          <h2>Galéria</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </div>
+
+        <div class="tabs">
+          <button class="tab active" data-tab="engagement">Jegyes fotók</button>
+          <button class="tab" data-tab="wedding">Esküvői fotók</button>
+        </div>
+
+        <div class="galleryGrid" id="galleryGrid"></div>
+
+        <div class="galleryActions">
+          <button class="btn" id="loadMoreBtn">Több kép</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reveal" id="info">
+      <div class="innerWide">
+        <div class="sectionHead">
+          <h2>Hasznos infók</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque nibh.</p>
+        </div>
+
+        <div class="accordion" id="accordion"></div>
+      </div>
+    </section>
+
+    <footer class="footer reveal">
+      Lorem ipsum • noindex/nofollow • Shire Edition
+    </footer>
+  </main>
+
+  <!-- Lightbox -->
+  <div class="lightbox" id="lightbox" aria-modal="true" role="dialog">
+    <div class="lightboxInner">
+      <div class="lightboxBar">
+        <div id="lbTitle">Lorem</div>
+        <button class="btn" id="lbClose">Bezárás</button>
+      </div>
+      <img id="lbImg" alt="Galéria kép" />
+    </div>
+  </div>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>
