@@ -1,14 +1,33 @@
-const $ = (sel) => document.querySelector(sel);
-const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+const $ = (s) => document.querySelector(s);
+const $$ = (s) => Array.from(document.querySelectorAll(s));
 
 export function initGallery(galleryData){
   const grid = $("#galleryGrid");
   const tabs = $$(".tab");
   const loadMoreBtn = $("#loadMoreBtn");
 
+  const lb = $("#lightbox");
+  const lbImg = $("#lbImg");
+  const lbTitle = $("#lbTitle");
+  const lbClose = $("#lbClose");
+
   let activeTab = "engagement";
   let shown = 0;
   const perPage = galleryData.perPage || 8;
+
+  function openLightbox(src, title){
+    lbImg.src = src;
+    lbTitle.textContent = title || "Photo";
+    lb.classList.add("open");
+  }
+  function closeLightbox(){
+    lb.classList.remove("open");
+    lbImg.src = "";
+  }
+
+  lbClose.addEventListener("click", closeLightbox);
+  lb.addEventListener("click", (e) => { if(e.target === lb) closeLightbox(); });
+  window.addEventListener("keydown", (e) => { if(e.key === "Escape") closeLightbox(); });
 
   function render(reset=false){
     if(reset){
@@ -22,12 +41,11 @@ export function initGallery(galleryData){
       const cell = document.createElement("div");
       cell.className = "gItem";
       cell.innerHTML = `<img loading="lazy" src="${it.src}" alt="${it.title || "photo"}">`;
-      cell.addEventListener("click", () => window.__openLightbox?.(it.src, it.title));
+      cell.addEventListener("click", () => openLightbox(it.src, it.title));
       grid.appendChild(cell);
     });
 
     shown += slice.length;
-    loadMoreBtn.style.opacity = shown < items.length ? "1" : ".35";
     loadMoreBtn.disabled = shown >= items.length;
   }
 
