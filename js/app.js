@@ -14,13 +14,27 @@ function renderNav(){
     a.textContent = item.label;
     a.addEventListener("click", (e) => {
       e.preventDefault();
-      document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+      document.getElementById("heroImg").style.backgroundImage = `url("${siteData.hero.heroImage}")`;
       nav.classList.remove("open");
     });
     nav.appendChild(a);
   });
 
   $("#navToggle").addEventListener("click", () => nav.classList.toggle("open"));
+
+  const navMini = document.getElementById("navMini");
+navMini.innerHTML = "";
+siteData.nav.forEach(item => {
+  const a = document.createElement("a");
+  a.href = `#${item.id}`;
+  a.textContent = item.label;
+  a.addEventListener("click", (e) => {
+    e.preventDefault();
+    document.getElementById(item.id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+  navMini.appendChild(a);
+});
+
 }
 
 function renderBrand(){
