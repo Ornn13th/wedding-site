@@ -1,6 +1,7 @@
 import { siteData } from "../assets/data/siteData.js";
 import { initScroll, setActiveNavOnScroll, smoothScrollToHash, revealOnScroll, parallaxTick } from "./scroll.js";
 import { initGallery } from "./gallery.js";
+import { initDynamics } from "./dynamics.js";
 
 const $ = (sel) => document.querySelector(sel);
 
@@ -230,6 +231,7 @@ function main() {
 
   initGallery(siteData.gallery);
   initTimelineDraw();
+  initDynamics();
 
   // initial
   setActiveNavOnScroll(siteData.nav.map(x => x.id));
@@ -248,5 +250,6 @@ function main() {
     if(id) smoothScrollToHash(id);
   });
 }
+
 
 main();
